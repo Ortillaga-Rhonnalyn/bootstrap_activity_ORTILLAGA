@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bootstrap 5 - ORTILLAGA</title>
+
+    <!-- LOCAL BOOTSTRAP 5 -->
+    <link rel="stylesheet" href="bootstrap5/css/bootstrap.min.css">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #ffffff;
+            color: #212529;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        }
+
+        .navbar-brand {
+            color: #0d6efd !important;
+            font-weight: 700;
+        }
+
+        .nav-link {
+            color: #212529 !important;
+            font-size: 14px;
+        }
+
+        .nav-link:hover {
+            color: #0d6efd !important;
+        }
+
+        #darkModeBtn {
+            border: 1px solid #6c757d;
+            background: transparent;
+            color: #212529;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        #darkModeBtn:hover {
+            background-color: #0d6efd;
+            color: white;
+            border-color: #0d6efd;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, #0d6efd, #0b5ed7);
+            color: white;
+            min-height: 385px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .version-badge {
+            display: inline-block;
+            background-color: white;
+            color: #0d6efd;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            font-size: 16px;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto 22px;
+        }
+
+        .hero-buttons .btn {
+            margin: 4px;
+            padding: 9px 16px;
+            font-weight: 600;
+        }
+
+        /* FEATURES */
+        .features-section {
+            background-color: #f1f3f5;
+            padding: 55px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #6c757d;
+            font-size: 14px;
+            margin-bottom: 35px;
+        }
+
+        .feature-card {
+            background-color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 25px;
+            height: 100%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-card h5 {
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: #6c757d;
+            font-size: 14px;
+            margin-bottom: 0;
+        }
+
+        /* PRICING */
+        .pricing-section {
+            background-color: #ffffff;
+            padding: 55px 0;
+        }
+
+        .pricing-card {
+            background-color: white;
+            border: 1px solid #eeeeee;
+            border-radius: 6px;
+            padding: 25px 20px;
+            height: 100%;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.09);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.16);
+        }
+
+        .pricing-card h6 {
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .price {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .price small {
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .pricing-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .pricing-list li {
+            font-size: 13px;
+            margin-bottom: 7px;
+        }
+
+        .check {
+            color: #0d6efd;
+            margin-right: 5px;
+        }
+
+        .xmark {
+            color: #6c757d;
+            margin-right: 5px;
+        }
+
+        .popular-card {
+            border: 2px solid #0d6efd;
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -11px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #0d6efd;
+            color: white;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .pricing-card .btn {
+            width: 100%;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* TESTIMONIALS */
+        .testimonials-section {
+            background-color: #e9ecef;
+            padding: 55px 0;
+        }
+
+        .testimonial-container {
+            max-width: 750px;
+            margin: auto;
+            position: relative;
+            min-height: 135px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .testimonial {
+            text-align: center;
+            width: 100%;
+        }
+
+        .testimonial-quote {
+            font-style: italic;
+            color: #6c757d;
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        .testimonial-name {
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .testimonial-position {
+            color: #6c757d;
+            font-size: 13px;
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 38px;
+            height: 38px;
+            border: none;
+            border-radius: 50%;
+            background-color: #0d6efd;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 2;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .carousel-arrow:hover {
+            background-color: #084298;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-left {
+            left: 0;
+        }
+
+        .carousel-right {
+            right: 0;
+        }
+
+        /* CONTACT */
+        .contact-section {
+            background-color: #ffffff;
+            padding: 55px 0;
+        }
+
+        .contact-form {
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .contact-form label {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .contact-form .form-control {
+            font-size: 13px;
+        }
+
+        .contact-form textarea {
+            min-height: 105px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            font-weight: 600;
+            padding: 10px;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #f1f3f5;
+            text-align: center;
+            padding: 18px;
+            color: #6c757d;
+            font-size: 13px;
+        }
+
+        /* DARK MODE */
+        body.dark-mode {
+            background-color: #121212;
+            color: #f1f1f1;
+        }
+
+        body.dark-mode .navbar {
+            background-color: #1e1e1e !important;
+        }
+
+        body.dark-mode .navbar-brand {
+            color: #4d9cff !important;
+        }
+
+        body.dark-mode .nav-link {
+            color: #f1f1f1 !important;
+        }
+
+        body.dark-mode #darkModeBtn {
+            color: #f1f1f1;
+            border-color: #adb5bd;
+        }
+
+        body.dark-mode .features-section,
+        body.dark-mode .testimonials-section,
+        body.dark-mode footer {
+            background-color: #1e1e1e;
+        }
+
+        body.dark-mode .pricing-section,
+        body.dark-mode .contact-section {
+            background-color: #121212;
+        }
+
+        body.dark-mode .feature-card,
+        body.dark-mode .pricing-card {
+            background-color: #242424;
+            border-color: #444;
+            color: #f1f1f1;
+        }
+
+        body.dark-mode .feature-card p,
+        body.dark-mode .testimonial-quote,
+        body.dark-mode .testimonial-position,
+        body.dark-mode .section-subtitle {
+            color: #bdbdbd;
+        }
+
+        body.dark-mode .contact-form .form-control {
+            background-color: #242424;
+            border-color: #555;
+            color: white;
+        }
+
+        body.dark-mode .contact-form .form-control::placeholder {
+            color: #aaa;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .carousel-left {
+                left: -5px;
+            }
+
+            .carousel-right {
+                right: -5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-white sticky-top">
+
+        <div class="container">
+
+            <a class="navbar-brand" href="#home">
+                Bootstrap 5 Website
+            </a>
+
+            <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pricing">Pricing</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Reviews</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+
+                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+
+                        <button id="darkModeBtn">
+                            Dark Mode
+                        </button>
+
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+
+    </nav>
+
+
+    <!-- HERO -->
+    <header class="hero" id="home">
+
+        <div class="container">
+
+            <div class="hero-content">
+
+                <span class="version-badge">
+                    Version 5.3.8
+                </span>
+
+                <h1>
+                    Build fast, responsive sites with Bootstrap
+                </h1>
+
+                <p>
+                    Powerful, extensible, and feature-packed frontend toolkit.
+                    Build and customize with Sass, utilize prebuilt grid system
+                    and components, and bring projects to life with powerful
+                    JavaScript plugins.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#features"
+                        class="btn btn-light text-primary">
+                        Get Started
+                    </a>
+
+                    <a href="#contact"
+                        class="btn btn-outline-light">
+                        Download Bootstrap 5.3.8
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- FEATURES -->
+    <section class="features-section" id="features">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Powerful Features
+            </h2>
+
+            <p class="section-subtitle">
+                Designed to give you full control over your layout and functionality.
+            </p>
+
+            <div class="row g-4">
+
+                <div class="col-sm-12 col-md-4">
+
+                    <div class="feature-card">
+
+                        <h5>
+                            Dark Mode Ready
+                        </h5>
+
+                        <p>
+                            Built-in theme switcher using Bootstrap 5's
+                            native data-bs-theme attribute.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-sm-12 col-md-4">
+
+                    <div class="feature-card">
+
+                        <h5>
+                            100% Mobile First
+                        </h5>
+
+                        <p>
+                            Fully fluid layout engineered to scale down
+                            seamlessly to mobile screens.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-sm-12 col-md-4">
+
+                    <div class="feature-card">
+
+                        <h5>
+                            Interactive UI
+                        </h5>
+
+                        <p>
+                            Includes dynamic feedback toasts, sliders,
+                            and form validation logic.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRICING -->
+    <section class="pricing-section" id="pricing">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Flexible Pricing
+            </h2>
+
+            <p class="section-subtitle">
+                Choose the plan that fits your business needs.
+            </p>
+
+            <div class="row g-4 justify-content-center">
+
+                <!-- STARTER -->
+                <div class="col-sm-12 col-md-4">
+
+                    <div class="pricing-card">
+
+                        <h6>
+                            Starter
+                        </h6>
+
+                        <div class="price">
+                            ₱0.00 <small>/mo</small>
+                        </div>
+
+                        <ul class="pricing-list">
+
+                            <li>
+                                <span class="check">✓</span>
+                                1 Project
+                            </li>
+
+                            <li>
+                                <span class="check">✓</span>
+                                Community Support
+                            </li>
+
+                            <li>
+                                <span class="xmark">×</span>
+                                Custom Domain
+                            </li>
+
+                        </ul>
+
+                        <button class="btn btn-outline-primary">
+                            Sign Up Free
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PRO -->
+                <div class="col-sm-12 col-md-4">
+
+                    <div class="pricing-card popular-card">
+
+                        <span class="popular-badge">
+                            Most Popular
+                        </span>
+
+                        <h6 class="text-primary">
+                            Pro Developer
+                        </h6>
+
+                        <div class="price">
+                            ₱49.00 <small>/mo</small>
+                        </div>
+
+                        <ul class="pricing-list">
+
+                            <li>
+                                <span class="check">✓</span>
+                                Unlimited Projects
+                            </li>
+
+                            <li>
+                                <span class="check">✓</span>
+                                Priority Support
+                            </li>
+
+                            <li>
+                                <span class="check">✓</span>
+                                Custom Domain
+                            </li>
+
+                        </ul>
+
+                        <button class="btn btn-primary">
+                            Get Started Pro
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ENTERPRISE -->
+                <div class="col-sm-12 col-md-4">
+
+                    <div class="pricing-card">
+
+                        <h6>
+                            Enterprise
+                        </h6>
+
+                        <div class="price">
+                            ₱109.00 <small>/mo</small>
+                        </div>
+
+                        <ul class="pricing-list">
+
+                            <li>
+                                <span class="check">✓</span>
+                                Dedicated Server
+                            </li>
+
+                            <li>
+                                <span class="check">✓</span>
+                                24/7 Phone Support
+                            </li>
+
+                            <li>
+                                <span class="check">✓</span>
+                                SLA Guarantee
+                            </li>
+
+                        </ul>
+
+                        <button class="btn btn-outline-primary">
+                            Contact Sales
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials-section" id="testimonials">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                What People Say
+            </h2>
+
+            <div class="testimonial-container">
+
+                <button
+                    class="carousel-arrow carousel-left"
+                    id="prevTestimonial">
+                    ‹
+                </button>
+
+                <div class="testimonial" id="testimonialContent">
+
+                    <p class="testimonial-quote">
+                        "The dark mode toggle integration works like a charm. Extremely clean markup!"
+                    </p>
+
+                    <div class="testimonial-name">
+                        Harrold Evangelista, BSIT-Business Analytics Track
+                    </div>
+
+                    <div class="testimonial-position">
+                        UI/UX Designer
+                    </div>
+
+                </div>
+
+                <button
+                    class="carousel-arrow carousel-right"
+                    id="nextTestimonial">
+                    ›
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="contact-section" id="contact">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Get In Touch
+            </h2>
+
+            <p class="section-subtitle">
+                Fill out the form below to send us a live message.
+            </p>
+
+            <!-- FORM -->
+            <form class="contact-form" id="contactForm">
+
+                <div class="row g-3">
+
+                    <div class="col-md-6">
+
+                        <label for="firstName">
+                            First Name
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="firstName"
+                            name="firstName"
+                            required>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <label for="lastName">
+                            Last Name
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="lastName"
+                            name="lastName"
+                            required>
+
+                    </div>
+
+
+                    <div class="col-12">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            class="form-control"
+                            id="email"
+                            name="email"
+                            placeholder="you@example.com"
+                            required>
+
+                    </div>
+
+
+                    <div class="col-12">
+
+                        <label for="message">
+                            Message
+                        </label>
+
+                        <textarea
+                            class="form-control"
+                            id="message"
+                            name="message"
+                            required></textarea>
+
+                    </div>
+
+
+                    <div class="col-12">
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary submit-btn">
+                            Submit Form
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 SirMags. Built with Bootstrap 5.3.
+    </footer>
+
+
+    <!-- LOCAL BOOTSTRAP JS -->
+    <script src="bootstrap5/js/bootstrap.bundle.min.js"></script>
+
+
+    <script>
+
+        /* DARK MODE */
+
+        const darkModeBtn =
+            document.getElementById("darkModeBtn");
+
+        darkModeBtn.addEventListener("click", function () {
+
+            document.body.classList.toggle("dark-mode");
+
+            if (document.body.classList.contains("dark-mode")) {
+
+                darkModeBtn.textContent = "Light Mode";
+
+            } else {
+
+                darkModeBtn.textContent = "Dark Mode";
+
+            }
+
+        });
+
+
+        /* TESTIMONIAL CAROUSEL */
+
+        const testimonials = [
+
+            {
+                quote: '"The dark mode toggle integration works like a charm. Extremely clean markup!"',
+                name: "Harrold Evangelista, BSIT-Business Analytics Track",
+                position: "UI/UX Designer"
+            },
+
+            {
+                quote: '"This Bootstrap starter layout completely sped up my client workflow. Highly recommended!"',
+                name: "Calvin Placio, BSIT-Network Technology Track",
+                position: "Lead Developer, Code-Smart Solutions"
+            }
+
+        ];
+
+        let currentTestimonial = 0;
+
+        const testimonialContent =
+            document.getElementById("testimonialContent");
+
+
+        function showTestimonial(index) {
+
+            const testimonial =
+                testimonials[index];
+
+            testimonialContent.innerHTML = `
+
+                <p class="testimonial-quote">
+                    ${testimonial.quote}
+                </p>
+
+                <div class="testimonial-name">
+                    ${testimonial.name}
+                </div>
+
+                <div class="testimonial-position">
+                    ${testimonial.position}
+                </div>
+
+            `;
+        }
+
+
+        document
+            .getElementById("prevTestimonial")
+            .addEventListener("click", function () {
+
+                currentTestimonial--;
+
+                if (currentTestimonial < 0) {
+                    currentTestimonial = testimonials.length - 1;
+                }
+
+                showTestimonial(currentTestimonial);
+
+            });
+
+
+        document
+            .getElementById("nextTestimonial")
+            .addEventListener("click", function () {
+
+                currentTestimonial++;
+
+                if (currentTestimonial >= testimonials.length) {
+                    currentTestimonial = 0;
+                }
+
+                showTestimonial(currentTestimonial);
+
+            });
+
+
+        /* SUBMIT FORM
+           No popup.
+           No database.
+           Clear the form and return to the top.
+        */
+
+        document
+            .getElementById("contactForm")
+            .addEventListener("submit", function (event) {
+
+                event.preventDefault();
+
+                this.reset();
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+            });
+
+    </script>
+
+</body>
+
+</html>
